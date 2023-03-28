@@ -1,0 +1,49 @@
+<!doctype html>
+<html class="no-js" lang="ru" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>  Добавление курса  </title>
+    <link rel="stylesheet" href=" css\foundation.css">
+    <link rel="stylesheet" href="css\app.css">
+</head>
+<body>
+   <div class="grid-padding-x">
+       <ul class="menu">
+            <li class="menu-text"> Стартовая страница </li>
+            <li> <a href="course-list.html"> Список курсов </a> </li>
+            <li> <a href="schedule.html"> Расписание </a> </li>
+       </ul>
+   </div>
+
+    <form method="POST" action="./course-list.html">
+  <div class="grid-container">
+    <div class="grid-x grid-padding-x">
+      <div class="medium-6 cell">
+
+          <legend>Информация о новом курсе: </legend>
+
+          <label for="id"> ID: <input type="text" name="id" id="id" required> </label>
+
+          <label for="courseName"> Название курса: <input type="text" id="courseName" name="courseName"></label>
+
+          <label for="lecturerFullName"> ФИО преподавателя: <input type="text" id="lecturerFullName" name="lecturerFullName"> </label>
+
+          <label for="description"> Описание курса: <textarea id="description" name="description"></textarea> </label>
+
+          <input class="button" type="submit" value="Отправить">
+          <input class="button" type="reset" value="Очистить">
+          <a class="button alert" href="./course-list.html">Вернуться к списку курсов</a>
+
+      </div>
+    </div>
+  </div>
+</form>
+
+</body>
+    <script src="/js/vendor/jquery.js"></script>
+    <script src="/js/vendor/what-input.js"></script>
+    <script src="/js/vendor/foundation.js"></script>
+    <script src="/js/app.js"></script>
+</html>

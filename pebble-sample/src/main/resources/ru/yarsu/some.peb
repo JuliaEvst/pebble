@@ -1,0 +1,309 @@
+<!doctype html>
+<html class="no-js" lang="ru" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список курсов</title>
+    <link rel="stylesheet" href=".\css\foundation.css">
+    <link rel="stylesheet" href=".\css\app.css">
+</head>
+<body>
+   <div class="list_courses">
+      <ul>
+          <h3 class="shadow-text"> Список аудиторий: </h3>
+          {% set number = scheduleItem.courseId %}
+          {{ number }}
+          {% for scheduleItem in scheduleInfo_list %}
+              {% if scheduleItem.courseId == number %}
+                <h6> {{scheduleItem.auditoriumNumber}} </h6>
+              {% endif %}
+          {% endfor %}
+          {% for i in 0..5%}
+             {{i}}
+          {% endfor %}
+
+          <p>{{ -7 | abs }}</p>
+
+          {{ 'my first car'|capitalize }}
+
+          {% for scheduleItem in scheduleInfo_list%}
+                {{scheduleItem.dayOfWeek}}
+          {% endfor %}
+
+          <br>
+          <h6> Номера аудиторий курса "SQL": </h6>
+          {% for scheduleItem in scheduleInfo_list %}
+                {% if scheduleItem.courseId == "sql-course" %}
+                    {{scheduleItem.auditoriumNumber}}
+                {% endif %}
+          {% endfor %}
+
+          <h6> Номера аудиторий курса "Разработка веб-приложений": </h6>
+          {% for scheduleItem in scheduleInfo_list %}
+               {% if scheduleItem.courseId == "web-course" %}
+                    {{scheduleItem.auditoriumNumber}}
+               {% endif %}
+          {% endfor %}
+
+          <h6> Номера аудиторий курса "Физика": </h6>
+          {% for scheduleItem in scheduleInfo_list %}
+                {% if scheduleItem.courseId == "physics-course" %}
+                     {{scheduleItem.auditoriumNumber}}
+                {% endif %}
+          {% endfor %}
+
+        <br>
+
+        <h6> Список всех преподавателей: </h6>
+        <ul>
+            {% for course in list_distinct_pr %}
+                <h6 >{{ course.lecturerFullName }}</h6>
+            {% endfor %}
+        </ul>
+         <select onchange="window.location.href = this.options[this.selectedIndex].value" style="width: 200px; height:25px;" placeholder="Выберите курс: ">
+             <option value="./course-list.html"></option>
+              {% for course in scheduleInfo %}
+                  	<option value="./courses/{{course.id}}.html"> {{course.courseName}} </option>
+               {% endfor %}
+         </select>
+         <br>
+        <p class="shadow-text">Lorem Ipsum</p>
+        <style>
+            .shadow-text{
+              line-height: 1;
+              -webkit-transition: all 0.5s ease;
+                      transition: all 0.5s ease;
+            }
+            .shadow-text:hover{
+              color: #FF1700; /* Меняем цвет текста */
+            }
+        </style>
+
+        {% for course in list_pr %}
+             {% if pr == course.lecturerFullName %}
+                <h6>{{course.courseName}}</h6>
+            {% else %}
+                <li> {{course.lecturerFullName}}: </li>
+                {% set pr = course.lecturerFullName %}
+                <h6>{{course.courseName}}</h6>
+            {% endif %}
+        {% endfor %}
+
+            <div style='float: right;' class="top-bar-right">
+                <ul class="menu">
+                <form>
+                    <li>
+                    <select onchange="window.location.href = this.options[this.selectedIndex].value" ">
+                         <option value="./course-list.html"></option>
+                         {% for course in scheduleInfo %}
+                               <option value="./courses/{{course.id}}.html"> {{course.courseName}} </option>
+                         {% endfor %}
+                    </select>
+                    </li>
+                    <li><input type="search" placeholder="Введите название курса"></li>
+                    <li><input type="submit" value="Найти"></li>
+                </form>
+                    <li><a href="./login.html">Войти</a></li>
+                    <li><a href="/signup">Регистрация</a></li>
+                </ul>
+            </div>
+
+            <div class="list_courses">
+                      <ul>
+                          <h3> Список курсов: </h3>
+                          {% for course in scheduleInfo %}
+                              <li><a href="./courses/{{course.id}}.html">{{course.courseName}}</a></li>
+                          {% endfor %}
+                          <hr>
+                           <br>
+                          <a class="button" href="./newcourse.html"> Добавить новый курс </a>
+                      </ul>
+                   </div>
+
+                                 <ul>
+                                     <h3> Информация о курсе: </h3>
+                                     <li> ID: {{ course.id }}</li>
+                                     <li> Название: {{ course.courseName }} </li>
+                                     <li> Имя и фамилия преподавателя: {{ course.lecturerFullName }} </li>
+                                     <li> Краткое описание: {{ course.description }} </li>
+                                     <li> <a href="../schedule.html"> Страница с расписанием </a></li>
+                                     <li> Список аудиторий:
+                                          {% set number = scheduleItem.courseId %}
+                                           {% for scheduleItem in scheduleInfo_list %}
+                                                {% if scheduleItem.courseId == number %}
+                                                    {{scheduleItem.auditoriumNumber}}
+                                               {% endif %}
+                                           {% endfor %}
+                                      </li>
+                                      <a class="button" href="../course-list.html"> Назад </a>
+                                   </ul>
+
+
+                                   <ul>
+                                             <h3> Расписание: </h3>
+                                             {% for scheduleItem in scheduleInfo_list %}
+                                                {% if day == scheduleItem.dayOfWeek %}
+                                                       <h6>{{scheduleItem.courseId}} время начала: {{scheduleItem.startTime}}</h6>
+                                                     {% else %}
+                                                     <li> {{scheduleItem.dayOfWeek}}:</li>
+                                                     {% set day = scheduleItem.dayOfWeek %}
+                                                      <h6>{{scheduleItem.courseId}} время начала: {{scheduleItem.startTime}}</h6>
+                                                 {% endif %}
+                                             {% endfor %}
+                                             <hr>
+                                             <a class="button" href="./course-list.html"> Список всех курсов </a>
+                                             <a class="button" href="#" onclick="history.back();return false;"> Назад к описанию курса</a>
+                                             <a class="button" href="./newinfocourse.html"> Добавить день проведения занятия </a>
+                                         </ul>
+           <div class="callout">
+           <ul>
+           {% for scheduleItem in scheduleItems %}
+                {% if day == scheduleItem.dayOfWeek %}
+                    {% for course in courses %}
+                        {% if scheduleItem.courseId == course.id %}
+                            <h6>{{ course.courseName }} - время начала пары: {{scheduleItem.startTime}} </h6>
+                        {% endif%}
+                    {% endfor %}
+                {% else %}
+                    <li> {{ scheduleItem.dayOfWeek }}: </li>
+                    {% set day = scheduleItem.dayOfWeek %}
+                    {% for course in courses %}
+                           {% if scheduleItem.courseId == course.id %}
+                                  <h6>{{ course.courseName }} - время начала пары: {{scheduleItem.startTime}} </h6>
+                           {% endif%}
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+           </ul>
+           </div>
+
+        <table style="width: 60%;">
+            <tr>
+                <th> День недели </th>
+                <th> Список курсов </th>
+            </tr>
+            <tr>
+                <th> MONDAY </th>
+                {% for scheduleItem in scheduleItems%}
+                    {% if scheduleItem.dayOfWeek == Monday %}
+                        <td>
+                        {% for course in courses%}
+                           {% if course.id == scheduleItem.courseId%}
+                              <h6>{{ course.courseName }} </h6>
+                              {{ scheduleItem.startTime}}
+                           {% endif %}
+                        {% endfor %}
+                        </td>
+                     {% endif %}
+                {% endfor %}
+                </th>
+            </tr>
+            <tr>
+                <th> TUESDAY </th>
+                {% for scheduleItem in scheduleItems%}
+                    {% if scheduleItem.dayOfWeek == Tuesday %}
+                        <td>
+                        {% for course in courses%}
+                           {% if course.id == scheduleItem.courseId%}
+                              <h6>{{ course.courseName }} </h6>
+                              {{ scheduleItem.startTime}}
+                           {% endif %}
+                        {% endfor %}
+                        </td>
+                     {% endif %}
+                {% endfor %}
+                </th>
+            </tr>
+            <tr>
+                <th> WEDNWSDAY </th>
+                {% for scheduleItem in scheduleItems%}
+                    {% if scheduleItem.dayOfWeek == Wednesday %}
+                        <td>
+                        {% for course in courses%}
+                           {% if course.id == scheduleItem.courseId%}
+                              <h6>{{ course.courseName }} </h6>
+                              {{ scheduleItem.startTime}}
+                           {% endif %}
+                        {% endfor %}
+                        </td>
+                     {% endif %}
+                {% endfor %}
+                </th>
+            </tr>
+            <tr>
+                <th> THURSDAY </th>
+                {% for scheduleItem in scheduleItems%}
+                    {% if scheduleItem.dayOfWeek == Thursday %}
+                        <td>
+                        {% for course in courses%}
+                           {% if course.id == scheduleItem.courseId%}
+                              <h6>{{ course.courseName }} </h6>
+                              {{ scheduleItem.startTime}}
+                           {% endif %}
+                        {% endfor %}
+                        </td>
+                     {% endif %}
+                {% endfor %}
+                </th>
+            </tr>
+            <tr>
+                <th> FRIDAY </th>
+                {% for scheduleItem in scheduleItems%}
+                    {% if scheduleItem.dayOfWeek == Friday %}
+                        <td>
+                        {% for course in courses%}
+                           {% if course.id == scheduleItem.courseId%}
+                              <h6>{{ course.courseName }} </h6>
+                              {{ scheduleItem.startTime}}
+                           {% endif %}
+                        {% endfor %}
+                        </td>
+                     {% endif %}
+                {% endfor %}
+                </th>
+            </tr>
+            <tr>
+                <th> SATURDAY </th>
+                {% for scheduleItem in scheduleItems%}
+                    {% if scheduleItem.dayOfWeek == Saturday %}
+                        <td>
+                        {% for course in courses%}
+                           {% if course.id == scheduleItem.courseId%}
+                              <h6>{{ course.courseName }} </h6>
+                              {{ scheduleItem.startTime}}
+                           {% endif %}
+                        {% endfor %}
+                        </td>
+                     {% endif %}
+                {% endfor %}
+                </th>
+            </tr>
+            <tr>
+                <th> SUNDAY </th>
+                {% for scheduleItem in scheduleItems%}
+                    {% if scheduleItem.dayOfWeek == Sunday %}
+                        <td>
+                        {% for course in courses%}
+                           {% if course.id == scheduleItem.courseId%}
+                              <h6>{{ course.courseName }} </h6>
+                              {{ scheduleItem.startTime}}
+                           {% endif %}
+                        {% endfor %}
+                        </td>
+                     {% endif %}
+                {% endfor %}
+                </th>
+            </tr>
+        </table>
+
+
+
+      </ul>
+   </div>
+</body>
+    <script src="/js/vendor/jquery.js"></script>
+    <script src="/js/vendor/what-input.js"></script>
+    <script src="/js/vendor/foundation.js"></script>
+    <script src="/js/app.js"></script>
+</html>

@@ -1,0 +1,179 @@
+<!doctype html>
+<html class="no-js" lang="ru" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список курсов</title>
+    <link rel="stylesheet" href=".\css\foundation.css">
+    <link rel="stylesheet" href=".\css\app.css">
+</head>
+<body>
+   <div class="list_courses">
+      <ul>
+          <h3 class="shadow-text"> Список аудиторий: </h3>
+                    physics-course                                        <h6> 203 </h6>
+                                                      <h6> 301 </h6>
+                                                                                                                                                                       0                       1                       2                       3                       4                       5          
+          <p>7</p>
+
+          My first car
+                          MONDAY                          MONDAY                          WEDNESDAY                          WEDNESDAY                          MONDAY                          SUNDAY                          WEDNESDAY          
+          <br>
+          <h6> Номера аудиторий курса "SQL": </h6>
+                                                                                                                                                      210                                                              210                                                    
+          <h6> Номера аудиторий курса "Разработка веб-приложений": </h6>
+                                                                                               223                                                            220                                                                                                    
+          <h6> Номера аудиторий курса "Физика": </h6>
+                                               203                                                               301                                                                                                                                                            
+        <br>
+
+        <h6> Список всех преподавателей: </h6>
+        <ul>
+                            <h6 >Иванов И. И.</h6>
+                            <h6 >Васильев А. М.</h6>
+                            <h6 >Горбунов О. Е.</h6>
+                    </ul>
+         <select onchange="window.location.href = this.options[this.selectedIndex].value" style="width: 200px; height:25px;" placeholder="Выберите курс: ">
+             <option value="./course-list.html"></option>
+                                	<option value="./courses/physics-course.html"> Физика </option>
+                                 	<option value="./courses/web-course.html"> Разработка веб-приложений </option>
+                                 	<option value="./courses/sql-course.html"> SQL </option>
+                                 	<option value="./courses/oracle-course.html"> СУБД Oracle </option>
+                        </select>
+         <br>
+        <p class="shadow-text">Lorem Ipsum</p>
+        <style>
+            .shadow-text{
+              line-height: 1;
+              -webkit-transition: all 0.5s ease;
+                      transition: all 0.5s ease;
+            }
+            .shadow-text:hover{
+              color: #FF1700; /* Меняем цвет текста */
+            }
+        </style>
+
+                                     <li> Васильев А. М.: </li>
+                                <h6>Разработка веб-приложений</h6>
+                                                 <li> Горбунов О. Е.: </li>
+                                <h6>SQL</h6>
+                                                 <h6>СУБД Oracle</h6>
+                                                 <li> Иванов И. И.: </li>
+                                <h6>Физика</h6>
+                    
+            <div style='float: right;' class="top-bar-right">
+                <ul class="menu">
+                <form>
+                    <li>
+                    <select onchange="window.location.href = this.options[this.selectedIndex].value" ">
+                         <option value="./course-list.html"></option>
+                                                        <option value="./courses/physics-course.html"> Физика </option>
+                                                        <option value="./courses/web-course.html"> Разработка веб-приложений </option>
+                                                        <option value="./courses/sql-course.html"> SQL </option>
+                                                        <option value="./courses/oracle-course.html"> СУБД Oracle </option>
+                                             </select>
+                    </li>
+                    <li><input type="search" placeholder="Введите название курса"></li>
+                    <li><input type="submit" value="Найти"></li>
+                </form>
+                    <li><a href="./login.html">Войти</a></li>
+                    <li><a href="/signup">Регистрация</a></li>
+                </ul>
+            </div>
+
+            <div class="list_courses">
+                      <ul>
+                          <h3> Список курсов: </h3>
+                                                        <li><a href="./courses/physics-course.html">Физика</a></li>
+                                                        <li><a href="./courses/web-course.html">Разработка веб-приложений</a></li>
+                                                        <li><a href="./courses/sql-course.html">SQL</a></li>
+                                                        <li><a href="./courses/oracle-course.html">СУБД Oracle</a></li>
+                                                    <hr>
+                           <br>
+                          <a class="button" href="./newcourse.html"> Добавить новый курс </a>
+                      </ul>
+                   </div>
+
+                                 <ul>
+                                     <h3> Информация о курсе: </h3>
+                                     <li> ID: physics-course</li>
+                                     <li> Название: Физика </li>
+                                     <li> Имя и фамилия преподавателя: Иванов И. И. </li>
+                                     <li> Краткое описание: Курс про устройство мира, если на него смотреть с помощью современного аппарата </li>
+                                     <li> <a href="../schedule.html"> Страница с расписанием </a></li>
+                                     <li> Список аудиторий:
+                                                                                                                                                                                         203                                                                                                                                                                                              301                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       </li>
+                                      <a class="button" href="../course-list.html"> Назад </a>
+                                   </ul>
+
+
+                                   <ul>
+                                             <h3> Расписание: </h3>
+                                                                                                                                                  <li> MONDAY:</li>
+                                                                                                           <h6>physics-course время начала: 09:00</h6>
+                                                                                                                                                                                                     <h6>physics-course время начала: 13:30</h6>
+                                                                                                                                                                                                       <li> WEDNESDAY:</li>
+                                                                                                           <h6>web-course время начала: 13:30</h6>
+                                                                                                                                                                                                     <h6>web-course время начала: 16:30</h6>
+                                                                                                                                                                                                       <li> MONDAY:</li>
+                                                                                                           <h6>sql-course время начала: 10:00</h6>
+                                                                                                                                                                                                   <li> SUNDAY:</li>
+                                                                                                           <h6>sql-course время начала: 10:00</h6>
+                                                                                                                                                                                                   <li> WEDNESDAY:</li>
+                                                                                                           <h6>oracle-course время начала: 16:00</h6>
+                                                                                                                                           <hr>
+                                             <a class="button" href="./course-list.html"> Список всех курсов </a>
+                                             <a class="button" href="#" onclick="history.back();return false;"> Назад к описанию курса</a>
+                                             <a class="button" href="./newinfocourse.html"> Добавить день проведения занятия </a>
+                                         </ul>
+           <div class="callout">
+           <ul>
+                      </ul>
+           </div>
+
+        <table style="width: 60%;">
+            <tr>
+                <th> День недели </th>
+                <th> Список курсов </th>
+            </tr>
+            <tr>
+                <th> MONDAY </th>
+                                </th>
+            </tr>
+            <tr>
+                <th> TUESDAY </th>
+                                </th>
+            </tr>
+            <tr>
+                <th> WEDNWSDAY </th>
+                                </th>
+            </tr>
+            <tr>
+                <th> THURSDAY </th>
+                                </th>
+            </tr>
+            <tr>
+                <th> FRIDAY </th>
+                                </th>
+            </tr>
+            <tr>
+                <th> SATURDAY </th>
+                                </th>
+            </tr>
+            <tr>
+                <th> SUNDAY </th>
+                                </th>
+            </tr>
+        </table>
+
+
+
+      </ul>
+   </div>
+</body>
+    <script src="/js/vendor/jquery.js"></script>
+    <script src="/js/vendor/what-input.js"></script>
+    <script src="/js/vendor/foundation.js"></script>
+    <script src="/js/app.js"></script>
+</html>

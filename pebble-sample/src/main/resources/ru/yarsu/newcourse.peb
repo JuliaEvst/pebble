@@ -1,0 +1,28 @@
+{% extends "./layout.peb" %}
+{% block title %} Добавление курса {% endblock %}
+
+{% block content %}
+<form method="POST" action="./course-list.html">
+  <div class="grid-container">
+    <div class="grid-x grid-padding-x">
+      <div class="medium-6 cell">
+
+          <legend>Информация о новом курсе: </legend>
+
+          <label for="id"> ID: <input type="text" name="id" id="id" required> </label>
+
+          <label for="courseName"> Название курса: <input type="text" id="courseName" name="courseName"></label>
+
+          <label for="lecturerFullName"> ФИО преподавателя: <input type="text" id="lecturerFullName" name="lecturerFullName"> </label>
+
+          <label for="description"> Описание курса: <textarea id="description" name="description"></textarea> </label>
+
+          <input class="button" type="submit" value="Отправить">
+          <input class="button" type="reset" value="Очистить">
+          <a class="button alert" href="./course-list.html">Вернуться к списку курсов</a>
+
+      </div>
+    </div>
+  </div>
+</form>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "./layout.peb "%}
+{% block title %} Расписание {% endblock %}
+
+{% block content %}
+    <div class="grid-x grid-padding-x">
+        <div class="large-12 cell">
+        <h3> Расписание: </h3>
+           <div class="callout">
+           <ul>
+           {% for scheduleItem in scheduleItems %}
+                {% if day == scheduleItem.dayOfWeek %}
+                    {% for course in courses %}
+                        {% if scheduleItem.courseId == course.id %}
+                            <h6>{{ course.courseName }} - время начала пары: {{scheduleItem.startTime}} </h6>
+                        {% endif%}
+                    {% endfor %}
+                {% else %}
+                    <li> {{ scheduleItem.dayOfWeek }}: </li>
+                    {% set day = scheduleItem.dayOfWeek %}
+                    {% for course in courses %}
+                           {% if scheduleItem.courseId == course.id %}
+                                  <h6>{{ course.courseName }} - время начала пары: {{scheduleItem.startTime}} </h6>
+                           {% endif%}
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+           </ul>
+           </div>
+        </div>
+    </div>
+{% endblock %}

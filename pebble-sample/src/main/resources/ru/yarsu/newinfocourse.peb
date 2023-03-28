@@ -1,0 +1,46 @@
+<!doctype html>
+<html class="no-js" lang="ru" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Добавить курс</title>
+    <link rel="stylesheet" href=".\css\foundation.css">
+    <link rel="stylesheet" href=".\css\app.css">
+</head>
+<body>
+   <div class="add_new_course">
+   <form method="POST">
+      <ul style="width: 500px; height:150px;">
+        <legend>Информация о новом расписании курса</legend>
+          <select>
+              <label for="courseId"> CourseId: </label>
+              {% for scheduleItem in scheduleInfoCourse_list %}
+                   <option selected value="{{ scheduleItem.courseId }}">{{ scheduleItem.courseId }}</option>
+              {% endfor %}
+          </select>
+          <label for="auditoriumNumber"> Номер аудитории: <input type="number" name="auditoriumNumber"> </label>
+          <label> День недели: <select>
+                              <option value="MONDAY">MONDAY</option>
+                              <option value="TUESDAY">TUESDAY</option>
+                              <option value="WEDNESDAY">WEDNESDAY</option>
+                              <option value="THURSDAY">THURSDAY</option>
+                              <option value="FRIDAY">FRIDAY</option>
+                              <option value="SATURDAY">SATURDAY</option>
+                              <option value="SUNDAY">SUNDAY</option>
+                              </select>
+          </label>
+          <label for="startTime"> Время начала занятия: <input type="time" name="startTime"> </label>
+
+          <input class="button" type="submit" value="Отправить">
+          <input class="button" type="reset" value="Очистить">
+          <a class="button alert" href="./course-list.html">Отменить и вернуться к списку курсов</a></div>
+      </ul>
+     </form>
+   </div>
+</body>
+    <script src="/js/vendor/jquery.js"></script>
+    <script src="/js/vendor/what-input.js"></script>
+    <script src="/js/vendor/foundation.js"></script>
+    <script src="/js/app.js"></script>
+</html>
